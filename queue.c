@@ -1,6 +1,7 @@
 #include "queue.h"
 #include <stdio.h>
 #include <assert.h>
+#include <stdlib.h>
 
 //动态数组长度
 static int  array_Size;
@@ -25,7 +26,7 @@ create_queue( size_t size )
 void
 insert( QUEUE_TYPE value )
 {
-    assert( !is_full );
+    assert( !is_full() );
     rear = ( rear + 1 ) % array_Size;
     queue[ rear ] = value;
 }
@@ -42,7 +43,7 @@ delete( void )
 QUEUE_TYPE
 first( void )
 {
-    assert( !is_empty );
+    assert( !is_empty() );
     return queue[ front ];
 }
 
